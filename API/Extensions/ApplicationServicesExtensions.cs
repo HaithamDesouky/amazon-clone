@@ -19,8 +19,6 @@ namespace API.Extensions
           services.AddScoped<IProductRepository, ProductRepository>();
           services.AddScoped<IOrderService, OrderRepository>();
           services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
-          services.AddControllers();
-          services.AddCors();
         
 
     services.AddDbContext<DataContext>(options =>
@@ -60,14 +58,13 @@ namespace API.Extensions
     options.UseNpgsql(connStr);
 });
 
+  services.AddControllers();
+          services.AddCors();
+        
+
             return services;
     
         
-
-
-
-      
-
 
         }
         
