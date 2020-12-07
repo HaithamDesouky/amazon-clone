@@ -58,9 +58,7 @@ namespace API.Extensions
     options.UseNpgsql(connStr);
 });
 
-  services.AddControllers();
-          services.AddCors();
-        
+       
 
             return services;
     
