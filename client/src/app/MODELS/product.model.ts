@@ -9,6 +9,7 @@ export interface Product {
   quantity?: number;
   subtotal?: number;
   total?: number;
+  Orderid?: any;
 }
 
 export interface Cart {
