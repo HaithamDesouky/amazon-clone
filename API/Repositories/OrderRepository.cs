@@ -23,11 +23,11 @@ namespace API.Repositories
     {  
       
 
-      var orderToSave =  new Order(orderReceived.OrderItems ,orderReceived.Email, orderReceived.Address, orderReceived.City,  orderReceived.Country, orderReceived.Zipcode, orderReceived.FirstName, orderReceived.LastName, orderReceived.Telephone, orderReceived.OrderNotes, orderReceived.Total);
+      var orderToSave =  new Order(orderReceived.Email, orderReceived.Address, orderReceived.City,  orderReceived.Country, orderReceived.Zipcode, orderReceived.FirstName, orderReceived.LastName, orderReceived.Telephone, orderReceived.OrderNotes,  orderReceived.Total);
 
       await _context.Orders.AddAsync(orderToSave);
 
-      // await _context.SaveChangesAsync();
+      await _context.SaveChangesAsync();
      
      return orderToSave;
     }

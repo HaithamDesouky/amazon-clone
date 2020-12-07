@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace API.Migrations
 {
-    public partial class post : Migration
+    public partial class postges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,33 +42,21 @@ namespace API.Migrations
                     price = table.Column<int>(type: "integer", nullable: false),
                     image = table.Column<string>(type: "text", nullable: true),
                     stock = table.Column<int>(type: "integer", nullable: false),
-                    category = table.Column<string>(type: "text", nullable: true),
-                    Orderid = table.Column<int>(type: "integer", nullable: true)
+                    category = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Products_Orders_Orderid",
-                        column: x => x.Orderid,
-                        principalTable: "Orders",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_Orderid",
-                table: "Products",
-                column: "Orderid");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Products");
         }
     }
 }

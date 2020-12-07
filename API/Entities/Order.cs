@@ -9,7 +9,7 @@ namespace API.Entities
     {
     }
 
-    public Order(List<Product> orderItems ,string email, string address, string city,  string country, string zipcode, string firstName, string lastName, string telephone, string orderNotes, int total)
+    public Order(string email, string address, string city,  string country, string zipcode, string firstName, string lastName, string telephone, string orderNotes, int total)
     {
       Email = email;
       Address = address;
@@ -20,11 +20,8 @@ namespace API.Entities
       LastName = lastName;
       Telephone = telephone;
       OrderNotes = orderNotes;
-      OrderItems = orderItems;
       Total = total;
-      
-      // Total = total;
-      
+            
     }
 
     public string Email { get; set; }
@@ -37,7 +34,6 @@ namespace API.Entities
     public string Telephone { get; set; }
     public string OrderNotes { get; set; }
     public DateTimeOffset OrderDate {get; set;} = DateTimeOffset.Now;
-    public List<Product> OrderItems {get; set;}
     public int Total { get; set; }
     // public string PaymentIntentId { get; set; }
 

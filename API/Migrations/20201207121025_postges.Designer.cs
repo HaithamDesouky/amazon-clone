@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201207115153_post")]
-    partial class post
+    [Migration("20201207121025_postges")]
+    partial class postges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,9 +73,6 @@ namespace API.Migrations
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
-                    b.Property<int?>("Orderid")
-                        .HasColumnType("integer");
-
                     b.Property<string>("category")
                         .HasColumnType("text");
 
@@ -96,21 +93,7 @@ namespace API.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("Orderid");
-
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("API.Entities.Product", b =>
-                {
-                    b.HasOne("API.Entities.Order", null)
-                        .WithMany("OrderItems")
-                        .HasForeignKey("Orderid");
-                });
-
-            modelBuilder.Entity("API.Entities.Order", b =>
-                {
-                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }
