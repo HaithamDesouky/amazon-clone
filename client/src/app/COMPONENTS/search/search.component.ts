@@ -38,7 +38,6 @@ export class SearchComponent implements OnInit {
   updateResults() {
     let searchVal = this.filter.term;
     let categoryVal = this.filter.category;
-    console.log(this.filter);
 
     if (searchVal.length && categoryVal.length) {
       this.api.getAllProducts().subscribe((resp) => {
@@ -73,7 +72,6 @@ export class SearchComponent implements OnInit {
 
   addToCart(p: any) {
     this.shopping_cart.addProduct(p);
-    console.log(this.filter);
     this.updateResults();
     this.shopping_cart.getTotal();
   }

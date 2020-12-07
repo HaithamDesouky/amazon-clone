@@ -24,10 +24,7 @@ export class OrderService {
   ) {}
 
   createOrder(order: Order) {
-    console.log('should do something');
-
     let oldOrder = this.shoppingCart.get_shopping_cart_items();
-    console.log(oldOrder);
 
     return this.http.post(this.baseUrl + 'order', order).subscribe((data) => {
       this.spinner.hide();

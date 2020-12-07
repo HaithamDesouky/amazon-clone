@@ -65,7 +65,5 @@ export class CheckoutComponent implements OnInit {
     this.spinner.show();
 
     let execute = this.orderService.createOrder(order);
-
-    console.log(this.checkoutForm);
   }
 }

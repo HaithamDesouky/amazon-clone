@@ -32,7 +32,5 @@ export class ThankyouComponent implements OnInit {
     this.cartTotal = state.total;
   }
 
-  ngOnInit() {
-    console.log('thank you', this.products);
-  }
+  ngOnInit() {}
 }
