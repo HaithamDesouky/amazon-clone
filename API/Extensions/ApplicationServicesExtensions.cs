@@ -20,8 +20,7 @@ namespace API.Extensions
           services.AddScoped<IOrderService, OrderRepository>();
           services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
         
-
-    services.AddDbContext<DataContext>(options =>
+            services.AddDbContext<DataContext>(options =>
 {
     var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
@@ -58,14 +57,8 @@ namespace API.Extensions
     options.UseNpgsql(connStr);
 });
 
-       
-
             return services;
-    
-        
-
         }
-        
         
     }
 }
