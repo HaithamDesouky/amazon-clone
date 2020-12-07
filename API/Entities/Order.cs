@@ -35,7 +35,6 @@ namespace API.Entities
     public string OrderNotes { get; set; }
     public DateTimeOffset OrderDate {get; set;} = DateTimeOffset.Now;
     public int Total { get; set; }
-    // public string PaymentIntentId { get; set; }
 
         
     }

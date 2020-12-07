@@ -9,7 +9,7 @@ namespace API.Interfaces
         Task<Product> GetProductByIdAsync (int id);
     
 
-        Task<IReadOnlyList<Product>> GetAllProductsAsync(string sort );
+        Task<IEnumerable<Product>> GetAllProductsAsync(string sort );
       
         
     }

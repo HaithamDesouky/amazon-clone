@@ -18,7 +18,7 @@ namespace API.Repositories
     }
 
 
-    public async Task<IReadOnlyList<Product>> GetAllProductsAsync(string sort )
+    public async Task<IEnumerable<Product>> GetAllProductsAsync(string sort )
     {   
 
       
