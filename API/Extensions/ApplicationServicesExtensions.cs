@@ -22,10 +22,6 @@ namespace API.Extensions
           services.AddControllers();
           services.AddCors();
         
-        //   services.AddDbContext<DataContext>(options =>
-        //      {
-        //              options.UseNpgsql(config.GetConnectionString("DefaultConnection"));
-        //      });
 
     services.AddDbContext<DataContext>(options =>
 {
