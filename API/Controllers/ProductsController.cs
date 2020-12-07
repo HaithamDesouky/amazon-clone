@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
-using API.DTOs;
 using API.Entities;
 using API.Interfaces;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -16,17 +13,17 @@ namespace API.Controllers
   public class ProductsController : BaseApiController
   {
     private readonly IProductRepository _productsRepo;
-    private readonly IMapper _mapper;
-    public ProductsController(IProductRepository productsRepo, IMapper mapper)
+    private readonly DataContext _context;
+    public ProductsController(IProductRepository productsRepo, DataContext context)
     {
-      _mapper = mapper;
+      _context = context;
       _productsRepo = productsRepo;
 
     }
 
     [HttpGet]
 
-    public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts(string sort )
+    public async Task<ActionResult<IEnumerable<Product>>> GetProducts(string sort )
     {
 
       var allProducts = await _productsRepo.GetAllProductsAsync(sort);
@@ -53,20 +50,20 @@ namespace API.Controllers
 
       }
 
-      return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(Products.ToList()));
+      return Products.ToList();
     }
 
 
     [HttpGet("{id}")]
 
-    public async Task<ActionResult<ProductDto>> GetProduct(int id )
+    public async Task<ActionResult<Product>> GetProduct(int id )
     {
 
 
       var product = await _productsRepo.GetProductByIdAsync(id);
 
 
-      return _mapper.Map<Product, ProductDto>(product);
+      return product;
     }
 
 

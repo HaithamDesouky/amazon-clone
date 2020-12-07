@@ -18,7 +18,6 @@ namespace API.Extensions
 
           services.AddScoped<IProductRepository, ProductRepository>();
           services.AddScoped<IOrderService, OrderRepository>();
-          services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
         
             services.AddDbContext<DataContext>(options =>
 {
